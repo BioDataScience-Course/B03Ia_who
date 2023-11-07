@@ -1,0 +1,46 @@
+---
+title: "Modèle prédictif de l'espérance de vie (données WHO)"
+author: "Teachers"
+date: "`r Sys.Date()`"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+editor: visual
+lang: fr
+---
+
+```{r setup, include=FALSE}
+# Ceci est nécessaire pour les tests SDD, ne pas utiliser dans un "vrai" projet
+if (!"tools:tests" %in% search())
+  source(here::here("tests/tools_tests.R"), attach(NULL, name = "tools:tests"))
+
+# Configure SciViews::R environment
+SciViews::R("model", lang = "fr")
+```
+
+# Introduction et but
+
+L'espérance de vie est un indicateur de santé publique important pour les différents pays et en fonction du temps. Elle quantifie la durée de vie moyenne d'une population à un instant précis à partie des données de mortalité du pays. Elle ne permet pas de prédire combien de temps une personne en particulier peut espérer vivre. Cependant, cette statistique s'est montré fiable pour comparer les pays entre eux, ou pour étudier une évolution globale dans le temps. La mortalité à différentes périodes de la vie, le niveau d'éducation, l'hygiène de vie et l'efficacité du système de soins de santé du pays, ainsi que les guerres et les évènements climatiques ou environnementaux extrêmes influent sur cet indicateur.
+
+Le but de ce travail est d'élaborer un modèle capable de prédire l'espérance de vie moyenne soit dans un pays dit développé, soit dans un pays en voie de développement, à partir de données relatives à la mortalité moyenne des adultes (donc, pas les données complètes de mortalité), de l'indice de masse corporelle comme proxy de l'hygiène de vie et du nombre d'années scolaires pour le niveau d'éducation. Nous ne prenons pas en compte ici les données relatives aux soins de santé qui sont plus difficiles à synthétiser en une seule variable. La dimension temporelle sera également abordée.
+
+# Matériel et méthodes
+
+Les données sont disponibles dans le domaine public (licence CC0) à partir de Kaggle ([**Life Expectancy (WHO) Fixed**](https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated)). Elles sont compilées à partir de différentes sources. L'origine des informations est détaillée dans la page de ce site. Le jeu de données est légèrement remanié (traitement documenté dans le fichier `R/import_who.R`).
+
+L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2023](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubunut 22.04) est utilisé pour exécuter le code.
+
+# Résultats
+
+Voici la description générale des données :
+
+<!--% Importez les données who.rds et réalisez immédiatement une première description générale. -->
+
+```{r import, record='RODFS', object='who'}
+who <- read("___")
+skimr::skim(who)
+```
+
+# Discussion et conclusion
