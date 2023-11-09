@@ -176,7 +176,7 @@ Nous allons considérer un modèle linéaire à termes additifs sans interaction
 
 <!--# Vous allez ici mettre à profit une propriété intéressante des formules qui est que les mêmes propriétés de commutation des opérateurs existe pour définir les termes du modèle. Ainsi, en algèbre (A + B) * C est égale à A * C + B * C. Vous pouvez faire de même avec les termes de votre modèle dans la formule. -->
 
-<!--% Réalisez un modèle linéaire de l'espérance de vie en fonction de la mortalité, de l'IMC, du niveau d'éducation sans interactions entre eux, tous trois croisés avec le niveau de développement des pays pour l'an 2000 représenté par la variable `Development` (interactions seulement entre `Development` et les trois variables quantitatives, aidez-vous de ce qui est déjà prérempli pour la formule et du commentaire juste au dessus). Vous partirez de `who2` et ferez un "subset" des données de l'an 2000 directement dans `lm()`. Placez le modèle dans `who00_lm1`. Résumez ensuite ce modèle en vous aidant de `tabularise()` pour en formater la sortie. Enfin, sortez un second tableau avec les métriques principales de performance de ce modèle, toujours en le formatant avec `tabularise()`. -->
+<!--% Réalisez un modèle linéaire de l'espérance de vie en fonction de la mortalité, de l'IMC, du niveau d'éducation sans interactions entre eux, tous trois croisés avec le niveau de développement des pays pour l'an 2000 représenté par la variable `Developed` (interactions seulement entre `Developed` et les trois variables quantitatives, aidez-vous de ce qui est déjà prérempli pour la formule et du commentaire juste au dessus). Vous partirez de `who2` et ferez un "subset" des données de l'an 2000 directement dans `lm()`. Placez le modèle dans `who00_lm1`. Résumez ensuite ce modèle en vous aidant de `tabularise()` pour en formater la sortie. Enfin, sortez un second tableau avec les métriques principales de performance de ce modèle, toujours en le formatant avec `tabularise()`. -->
 
 ```{r model2000_1, record='ROP', object='who00_lm1', arg='call'}
 who00_lm1 <- lm(data = who2,
@@ -186,7 +186,7 @@ summary(who00_lm1) |> tabularise()
 tabularise$glance(who00_lm1)
 ```
 
-<!--% Interprétez ce modèle pour l'an 2000.-->
+<!--% Interprétez ce modèle pour l'an 2000. -->
 
 ```{r model2000_1comment, output='asis'}
 select_answer(r"-{
@@ -361,7 +361,7 @@ who15_lm1 <- lm(data = who,
 summary(who15_lm1) |> tabularise()
 ```
 
-<!--% Interprétez ce modèle 2015.-->
+<!--% Interprétez ce modèle 2015. -->
 
 ```{r model2015_1comment, output='asis'}
 select_answer(r"-{
@@ -388,7 +388,7 @@ who15_lm2 <- lm(data = who,
 summary(who15_lm2) |> tabularise()
 ```
 
-<!--% Interprétez ce second modèle 2015.-->
+<!--% Interprétez ce second modèle 2015. -->
 
 ```{r model2015_2comment, output='asis'}
 select_answer(r"-{
