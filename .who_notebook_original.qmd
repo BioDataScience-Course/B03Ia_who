@@ -208,7 +208,7 @@ select_answer(r"-{
 
 Nous tentons une première simplification du modèle.
 
-<!--% Calculez un second modèle simplifié en fonction de vos observations du premier. Vous placez le résultat dans `who00_lm2` et en ferez le résumé uniquement. Vous simplifierez le modèle en éliminant les interactions entre mortalité et l'espérance de vie et entre l'IMC et l'espérance de vie (pensez à la commutativité des opérateurs dans la formule et aidez-vous de ce qui est déjà prérempli). -->
+<!--% Calculez un second modèle simplifié en fonction de vos observations du premier. Vous placez le résultat dans `who00_lm2` et en ferez le résumé uniquement. Vous simplifierez le modèle en éliminant les interactions entre mortalité et développement du pays et entre l'IMC et le développement du pays (pensez à la commutativité des opérateurs dans la formule et aidez-vous de ce qui est déjà prérempli). -->
 
 ```{r model2000_2, record='ROP', object='who00_lm2', arg='call'}
 who00_lm2 <- lm(data = who,
