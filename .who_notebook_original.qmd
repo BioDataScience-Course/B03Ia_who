@@ -26,7 +26,7 @@ L'espérance de vie est un indicateur de santé publique important pour les diff
 
 Le but de ce travail est d'élaborer un modèle pour prédire l'espérance de vie moyenne soit dans un pays dit développé, soit dans un pays en voie de développement, à partir de données relatives à la mortalité moyenne des adultes (donc, pas les données complètes de mortalité), de l'indice de masse corporelle comme proxy de l'hygiène de vie et du nombre d'années scolaires pour le niveau d'éducation. Nous ne prenons pas en compte ici les données relatives aux soins de santé qui sont plus difficiles à synthétiser en une seule variable. La dimension temporelle sera également abordée.
 
-<!--# Vous noterez qu'il est bizarre d'utiliser la mortalité moyenne adulte pour prédire l'espérance de vie car les deux sont issues des mêmes données au départ, soit les recensements de mortalités dans le pays. Donc si on a ce qu'il faut à disposition pour en calculer la moyenne, on peut aussi très bien calculer précisément l'espérance de vie... et le modèle est inutile. Cependant, le modèle fait plus que cela, il permet de voir comment chaque variable intervient dans la prédiction de l'espérance de vie, ce qui nous donne des informations utiles sur l'impact de ces variables. C'est dans cette optique-là que notre modèle est élaboré. -->
+<!--# Vous noterez qu'il est bizarre d'utiliser la mortalité moyenne adulte pour prédire l'espérance de vie car les deux variables sont issues des mêmes données au départ, soit les recensements de mortalités dans le pays. Donc si on a ce qu'il faut à disposition pour en calculer la moyenne, on peut aussi très bien calculer précisément l'espérance de vie... et le modèle est inutile. Cependant, le modèle fait plus que cela, il permet de voir comment chaque variable intervient dans la prédiction de l'espérance de vie. Les relations entre ces variables établies par le modèle nous donnent donc des pistes pour comprendre les mécanismes responsable de l'augmentation ou de la diminution de l'espérance de vie. C'est dans cette optique-là que notre modèle est élaboré. -->
 
 # Matériel et méthodes
 
@@ -154,6 +154,8 @@ chart(data = who2, ___) +
 select_answer(r"-{
 [] -   Globalement, les observations réalisées sur l'ensemble des données (hors évolution dans le temps, bien sûr) peuvent être reconduites ici, aussi bien pour l'an 2000 que pour l'an 2015.
 [] -   Les observations réalisées sur l'ensemble des données ne sont plus valables, dès lors que l'on s'intéresse à une année en particulier, que ce soit l'an 2000 ou l'an 2015.
+[] -   Les nuages de points sont linéaires ou suffisamments linéaires pour notre modèle. Il n'est pas nécessaire de les transformer.
+[] -   Les nuages de points sont curvilinéaires et une transformation est souhaitable avant de les utiliser dans un modèle linéaire.
 [] -   Les droites ont des pentes différentes pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
 [] -   Les droites ont des pentes similaires pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
 [] -   Il ne semble pas y avoir de décalage important de l'ordonnée à l'origine pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
