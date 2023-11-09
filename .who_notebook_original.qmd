@@ -114,10 +114,10 @@ select_answer(r"-{
 [] -   Des patterns s'observent en fonction du temps : l'espérance de vie a tendance à augmenter avec le temps de manière générale.
 [] -   Des patterns s'observent en fonction du temps : l'espérance de vie a tendance à diminuer avec le temps de manière générale.
 [] -   Pour les pays dont l'espérance de vie est la plus faible, l'évolution dans le temps montre d'abord une nette diminution jusqu'en 2005 pour croître seulement ensuite.
-[] -   Les nuages de points ont des étalements similaire en fonction des trois variables, mais l'association est positive pour la mortalité aalors qu'elle est inverse pour l'IMC et la scolarité par rapport à l'espérance de vie.
-[] -   Le nuage de points montre une association positive forte entre la mortalité adulte et l'espérance de vie pour tous les pays.
-[] -   Les nuages de points pour l'IMC et la scolarité indiquent une association inverse et moyenne avec l'espérance de vie, aussi bien pour les pays non développés que pour les pays développés.
-[] -   Les nuages de points pour l'IMC et la scolarité indiquent une association inverse et moyenne avec l'espérance de vie pour les pays non développés. L'association est inexistante ou très faible pour les pays développés.}-")
+[] -   Les nuages de points ont des étalements similaire en fonction des trois variables, mais l'association est négative pour la mortalité alors qu'elle est positive pour l'IMC et la scolarité par rapport à l'espérance de vie.
+[] -   Le nuage de points montre une association négative forte entre la mortalité adulte et l'espérance de vie pour tous les pays.
+[] -   Les nuages de points pour l'IMC et la scolarité indiquent une association positive et moyenne avec l'espérance de vie, aussi bien pour les pays non développés que pour les pays développés.
+[] -   Les nuages de points pour l'IMC et la scolarité indiquent une association positive et moyenne avec l'espérance de vie pour les pays non développés. L'association est inexistante ou très faible pour les pays développés.}-")
 ```
 
 Nous n'utiliserons pas la variable `Year` comme variable prédictive, car les observations ne sont pas indépendantes (ce sont les mêmes pays qui sont mesurés successivement dans le temps). Afin d'avoir un jeu contenant des données qui soient indépendantes les unes des autres (une des conditions d'application des tests autour du modèle linéaire), nous ne traiterons qu'une année à la fois. Nous réaliserons deux modèles différents : le premier pour l'an 2000 et le second pour 2015.
