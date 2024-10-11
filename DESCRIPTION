@@ -1,6 +1,6 @@
 Package: B03Ia_who
 Type: Package
-Version: 1.0.0
+Version: 2.0.0
 Title: Modèle linéaire d'espérance de vie (données World Health Organisation)
 Description: Projet individuel cadré du module 3 du cours SDD II à l'UMONS
 Authors@R: c(
@@ -10,9 +10,9 @@ Authors@R: c(
   person("Guyliann", "Engels", role = "aut",
     email = "guyliann.engels@umons.ac.be"))
   )
-Depends: R (>= 4.2.3)
-SystemRequirements: SciViews Box 2023 (https://www.sciviews.org/software/svbox/)
-License: MIT
+Depends: R (>= 4.3.0)
+SystemRequirements: SciViews Box 2024 (https://www.sciviews.org/software/svbox/)
+License: CC BY-NC-SA 4.0
 URL: https://github.com/BioDataScience-Course/B03Ia_who
 BugReports: https://github.com/BioDataScience-Course/B03Ia_who/issues
 Encoding: UTF-8

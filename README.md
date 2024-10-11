@@ -1,11 +1,10 @@
 # Modèle linéaire d'espérance de vie (données World Health Organisation)
-## Avant-propos
 
 Ce projet nécessite d'avoir assimilé l'ensemble des notions des trois premiers modules du cours de science des données biologiques 2. Il correspond au dépôt GitHub <https://github.com/BioDataScience-Course/B03Ia_who>.
 
 ## Objectif
 
-Ce projet est **court**, **individuel** et **cadré**. Il vise à compléter votre apprentissage en modélisation de données biologiques en vous initiant aux modèles linéaires. Dans ce projet, vous devrez :
+Ce projet est **court**, **individuel** et **cadré**. Il vise à compléter votre apprentissage en modélisation de données biologiques en vous initiant aux modèles linéaires. Dans ce projet, vous devez :
 
 -   Décrire correctement des données en vue de leur modélisation
 
@@ -17,7 +16,7 @@ Ce projet est **court**, **individuel** et **cadré**. Il vise à compléter vot
 
 ## Consignes
 
-Complétez les zones manquantes dans le fichier `who_notebook.qmd`. Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -> bouton "Construire tout") pour vérifier l'état travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document !
+Complétez les zones manquantes dans le fichier `who_notebook.qmd`. Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -> bouton "Construire tout") pour vérifier l'état travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document !
 
 ## Informations sur les données
 

@@ -51,7 +51,7 @@ Les données sont disponibles pour `r length(unique(who$Country))` pays et `r le
 
 <!--% Réalisez une table de contingence de la variable Status uniquement pour une année (par exemple, l'an 2000). -->
 
-```{r contingence, record='RNP', arg='col_keys'}
+```{r contingence, record='RNP', arg='col_keys', warning=FALSE}
 sfilter(who, ___) %>.%
   table(Status = .$Status) %>.%
   tabularise(.) %>.%
@@ -75,13 +75,16 @@ select_answer(r"-{
 []. -  Il y a à peu près autant de pays en voie de développement que de pays développés.
 [] -   Il y a plus de pays en voie de développement que de pays développés.
 [] -   Il y a plus de pays développés que de pays en voie de développement.
+
 [] -   La plus forte corrélation est entre l'espérance de vie et la mortalité adulte.
 [] -   La plus forte corrélation est inverse entre l'espérance de vie et la mortalité adulte.
 [] -   Les corrélations entre l'espérance de vie et l'IMC ou le niveau d'éducation sont également fortes.
 [] -   Les corrélations entre l'espérance de vie et l'IMC ou le niveau d'éducation sont moyennes.
+
 [] -   Il y corrélation importante entre les possibles variables prédictives mortailté, IMC et éducation. Cela peut poser problèmes au niveau du modèle.
 [] -   La corrélation entre les possibles variables prédictives mortalité, IMC et niveau d'éducation est moyenne à faible, ce qui est une bonne chose pour notre modèle linéaire (intercorrélation limitée).
-[] -   Il n'y a pas d'intercorrélation entre les possiblevariables prédictives mortalité, IMC et niveau d'éducation.
+[] -   Il n'y a pas d'intercorrélation entre les possibles variables prédictives mortalité, IMC et niveau d'éducation.
+
 [] -   La corrélation entre les années et l'espérance de vie est importante.
 [] -   La corrélation entre les années et l'espérance de vie est moyenne.
 [] -   La corrélation entre les années et l'espérance de vie est faible.}-")
@@ -91,17 +94,17 @@ Les possibles variables prédictives quantitatives montrent des différences en 
 
 <!-- Réalisez trois graphiques en nuage de points de l'espérance de vie en fonction (1) de la mortalité (2) de l'IMC, et (3) du niveau d'éducation en utilisant la couleur pour les années et les facettes pour le niveau de développement (en utilisant pour ce dernier la variable 'Status'). -->
 
-```{r plot1, record='RNP', args='labels'}
+```{r plot1, record='RNCS'}
 chart(data = who, ___) +
   ___
 ```
 
-```{r plot2, record='RNP', args='labels'}
+```{r plot2, record='RNCS'}
 chart(data = who, ___) +
   ___
 ```
 
-```{r plot3, record='RNP', args='labels'}
+```{r plot3, record='RNCS'}
 chart(data = who, ___) +
   ___
 ```
@@ -111,8 +114,10 @@ select_answer(r"-{
 [] -   La répartition des données est équivalente entre pays développés et non développés.
 [] -   La répartition des données est plus large pour les pays développés que non développés.
 [] -   La répartition des données est moins large pour les pays développés que non développés.
+
 [] -   Des patterns s'observent en fonction du temps : l'espérance de vie a tendance à augmenter avec le temps de manière générale.
 [] -   Des patterns s'observent en fonction du temps : l'espérance de vie a tendance à diminuer avec le temps de manière générale.
+
 [] -   Pour les pays dont l'espérance de vie est la plus faible, l'évolution dans le temps montre d'abord une nette diminution jusqu'en 2005 pour croître seulement ensuite.
 [] -   Les nuages de points ont des étalements similaire en fonction des trois variables, mais l'association est négative pour la mortalité alors qu'elle est positive pour l'IMC et la scolarité par rapport à l'espérance de vie.
 [] -   Le nuage de points montre une association négative forte entre la mortalité adulte et l'espérance de vie pour tous les pays.
@@ -130,19 +135,19 @@ who2 <- sfilter(who, ___)
 
 <!--% Ensuite effectuez à nouveau trois nuages de points de l'espérance de vie en fonction de (1) la mortalité, (2) l'IMC et (3) le niveau d'éducation à partir de `who2`, mais cette fois-ci, en utilisant la couleur pour `Status` et les facettes pour `Year`. Ajoutez également les droites de régression. -->
 
-```{r plot1b, record='RNP', args='labels'}
+```{r plot1b, record='RNCS'}
 chart(data = who2, ___) +
   ___ +
   stat_smooth(method = "lm", formula = y ~ x)
 ```
 
-```{r plot2b, record='RNP', args='labels'}
+```{r plot2b, record='RNCS'}
 chart(data = who2, ___) +
   ___ +
   ___
 ```
 
-```{r plot3b, record='RNP', args='labels'}
+```{r plot3b, record='RNCS'}
 chart(data = who2, ___) +
   ___ +
   ___
@@ -154,16 +159,21 @@ chart(data = who2, ___) +
 select_answer(r"-{
 [] -   Globalement, les observations réalisées sur l'ensemble des données (hors évolution dans le temps, bien sûr) peuvent être reconduites ici, aussi bien pour l'an 2000 que pour l'an 2015.
 [] -   Les observations réalisées sur l'ensemble des données ne sont plus valables, dès lors que l'on s'intéresse à une année en particulier, que ce soit l'an 2000 ou l'an 2015.
+
 [] -   Les nuages de points sont linéaires ou suffisamments linéaires pour notre modèle. Il n'est pas nécessaire de les transformer.
 [] -   Les nuages de points sont curvilinéaires et une transformation est souhaitable avant de les utiliser dans un modèle linéaire.
+
 [] -   Les droites ont des pentes différentes pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
 [] -   Les droites ont des pentes similaires pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
+
 [] -   Il ne semble pas y avoir de décalage important de l'ordonnée à l'origine pour la relation entre la mortalité et l'espérance de vie entre pays développés ou non.
 [] -   Un décalage de l'ordonnée à l'origine pour la relation entre la mortalité et l'espérance de vie est visible entre pays développés ou non.
 [] -   Un décalage de l'ordonnée à l'origine pour la relation entre la mortalité et l'espérance de vie est visible entre pays développés ou non, mais seulement en l'an 2000.
 [] -   Un décalage de l'ordonnée à l'origine pour la relation entre la mortalité et l'espérance de vie est visible entre pays développés ou non, mais seulement en l'an 2015.
+
 [] -   Les pentes sont similaires entre pays développés ou non pour les relations IMC ou scolarité et espérance de vie.
 [] -   Les pentes sont différentes entre pays développés ou non pour les relations IMC ou scolarité et espérance de vie.
+
 [] -   L'IMC semble non ou peu corrélé à l'espérance de vie pour les pays développés en l'an 2000, mais une relation inverse apparaît en 2015.
 [] -   L'effet du niveau de scolarité apparaît sur l'espérance de vie pour les pays développés est plutôt net, mais très différent des pays non développés.
 [] -   L'effet du niveau de scolarité apparaît comme faible sur l'espérance de vie pour les pays développés.
@@ -178,7 +188,7 @@ Nous allons considérer un modèle linéaire à termes additifs sans interaction
 
 <!--% Réalisez un modèle linéaire de l'espérance de vie en fonction de la mortalité, de l'IMC, du niveau d'éducation sans interactions entre eux, tous trois croisés avec le niveau de développement des pays pour l'an 2000 représenté par la variable `Developed` (interactions seulement entre `Developed` et les trois variables quantitatives, aidez-vous de ce qui est déjà prérempli pour la formule et du commentaire juste au dessus). Vous partirez de `who2` et ferez un "subset" des données de l'an 2000 directement dans `lm()`. Placez le modèle dans `who00_lm1`. Résumez ensuite ce modèle en vous aidant de `tabularise()` pour en formater la sortie. Enfin, sortez un second tableau avec les métriques principales de performance de ce modèle, toujours en le formatant avec `tabularise()`. -->
 
-```{r model2000_1, record='ROP', object='who00_lm1', arg='call'}
+```{r model2000_1, record='ROP', object='who00_lm1', arg='call', warning=FALSE}
 who00_lm1 <- lm(data = who2,
   ___ ~ (___ + ___ + ___) * ___,
   subset = ___ == ___)
@@ -192,10 +202,12 @@ tabularise$glance(who00_lm1)
 select_answer(r"-{
 [] -   Le modèle dans son ensemble n'est pas significatif au seuil $\alpha$ de 5% (ANOVA).
 [] -   Le modèle dans son ensemble est significatif au seuil $\alpha$ de 5% (ANOVA).
+
 [] -   Le *R*^2^ multiple que nous utilisons ici vaut 0.94. Il est donc bon.
 [] -   Le *R*^2^ multiple que nous utilisons ici vaut 0.94. Il est donc excellent.
 [] -   Le *R*^2^ ajusté que nous utilisons ici vaut 0.93. Il est donc bon.
 [] -   Le *R*^2^ ajusté que nous utilisons ici vaut 0.93. Il est donc excellent.
+
 [] -   Tous les paramètres du modèle sont significativement différents de zéro au seuil $\alpha$ de 5%.
 [] -   Seuls les termes indépendants du modèle sont significativement différents de zéro au seuil $\alpha$ de 5% (pas le décalage de l'origine, ni les interractions).
 [] -   Seuls les termes indépendants du modèle et le décalage de l'origine sont significativement différents de zéro au seuil $\alpha$ de 5% (pas les interractions).
@@ -210,21 +222,23 @@ Nous tentons une première simplification du modèle.
 
 <!--% Calculez un second modèle simplifié en fonction de vos observations du premier. Vous placez le résultat dans `who00_lm2` et en ferez le résumé uniquement. Vous simplifierez le modèle en éliminant les interactions entre mortalité et développement du pays et entre l'IMC et le développement du pays (pensez à la commutativité des opérateurs dans la formule et aidez-vous de ce qui est déjà prérempli). -->
 
-```{r model2000_2, record='ROP', object='who00_lm2', arg='call'}
+```{r model2000_2, record='ROP', object='who00_lm2', arg='call', warning=FALSE}
 who00_lm2 <- lm(data = who,
   ___ ~ ___ + ___ + (___ * ___),
   subset = ___)
 summary(who00_lm2) |> tabularise()
 ```
 
-<!--% Interprétez ce second modèle 2000.-->
+<!--% Interprétez ce second modèle 2000. -->
 
 ```{r model2000_2comment, output='asis'}
 select_answer(r"-{
 [] -   Le modèle dans son ensemble n'est pas significatif au seuil $\alpha$ de 5% (ANOVA).
 [] -   Le modèle dans son ensemble est significatif au seuil $\alpha$ de 5% (ANOVA).
+
 [] -   Le *R*^2^ reste similaire au modèle précédent plus complexe.
 [] -   Le *R*^2^ a diminué par rapport au modèle précédent plus complexe.
+
 [] -   Tous les paramètres du modèle sont significativement différents de zéro au seuil $\alpha$ de 5%.
 [] -   Plus aucun paramètre du modèle n'est significativement différent de zéro au seuil $\alpha$ de 5%.
 [] -   Les termes indépendants du modèle sont significativement différents de zéro au seuil $\alpha$ de 5% (mais pas le décalage de l'origine ou le terme d'interaction entre scolarité et espérance de vie).
@@ -235,7 +249,7 @@ Voici la comparaison de nos deux modèles :
 
 <!--% Comparez à présent les deux modèles sur base de l'AIC et d'un test ANOVA pour décider lequel conserver. -->
 
-```{r compa1, record='RNP', arg='col_keys'}
+```{r compa1, record='RNP', arg='col_keys', warning=FALSE}
 AIC(___, ___) |> as_dtt() |>
   tabularise() |>
   Stb$set_header_labels(.rownames = "Modèle", df = "Ddl", AIC = "AIC")
@@ -247,6 +261,7 @@ select_answer(r"-{
 [] -   L'AIC indique que le premier modèle est le meilleur.
 [] -   L'AIC indique que le second modèle simplifié est le meilleur.
 [] -   Les AIC étant presque identiques, nos deux modèles se vallent.
+
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre premier modèle plus complexe.
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre second modèle plus simple.
 [] -   L'ANOVA de comparaison des deux modèles montre des différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre premier modèle plus complexe.
@@ -257,7 +272,7 @@ Une seconde simplification nous mène à ne plus considérer aucune interaction 
 
 <!--% Tentez un troisième modèle sans plus aucune interaction. Vous placez le résultat dans `who00_lm3` et en ferez le résumé. -->
 
-```{r model2000_3, record='ROP', object='who00_lm3', arg='call'}
+```{r model2000_3, record='ROP', object='who00_lm3', arg='call', warning=FALSE}
 who00_lm3 <- lm(data = who,
   ___,
   subset = ___)
@@ -270,8 +285,10 @@ summary(who00_lm3) |> tabularise()
 select_answer(r"-{
 [] -   Le modèle dans son ensemble n'est pas significatif au seuil $\alpha$ de 5% (ANOVA).
 [] -   Le modèle dans son ensemble est significatif au seuil $\alpha$ de 5% (ANOVA).
+
 [] -   Le *R*^2^ reste similaire au modèle précédent.
 [] -   Le *R*^2^ a diminué par rapport au modèle précédent.
+
 [] -   Tous les paramètres du modèle sont significativement différents de zéro au seuil $\alpha$ de 5%.
 [] -   Plus aucun paramètre du modèle n'est significativement différent de zéro au seuil $\alpha$ de 5%.
 [] -   Les termes indépendants du modèle sont significativement différents de zéro au seuil $\alpha$ de 5% (mais pas le décalage de l'origine).}-")
@@ -281,7 +298,7 @@ Nous choisissons le meilleur modèle encore une fois sur base du critère d'Akai
 
 <!--% Comparez le meilleur des deux précédents avec ce troisème modèle sur base de l'AIC et d'un test ANOVA pour décider lequel conserver. -->
 
-```{r compa2, record='RNP', arg='col_keys'}
+```{r compa2, record='RNP', arg='col_keys', warning=FALSE}
 AIC(___, ___) |> as_dtt() |>
   tabularise() |>
   Stb$set_header_labels(.rownames = "Modèle", df = "Ddl", AIC = "AIC")
@@ -295,6 +312,7 @@ select_answer(r"-{
 [] -   L'AIC indique que le précédent modèle reste le meilleur.
 [] -   L'AIC indique que le dernier modèle simplifié est le meilleur.
 [] -   Les AIC étant presque identiques, nos deux modèles se vallent.
+
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre précédent modèle plus complexe.
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre dernier modèle le plus simple.
 [] -   L'ANOVA de comparaison des deux modèles montre des différences significatives au seuil $\alpha$ de 5%. Nous allons donc conserver notre précédent modèle plus complexe.
@@ -306,7 +324,7 @@ Le modèle final pour l'année 2000 est paramétré comme suit :
 <!--% Complétez l'équation paramétrée du modèle. -->
 
 $$
-`r eq__(___, ___ = TRUE, ___ = c(1, 3, 2, 2, 2, 2))`
+`r eq__(who00_lm2, use_coefs = TRUE, coef_digits = c(1, 3, 2, 2, 2, 2))`
 $$
 
 ### Analyse des résidus du modèle pour l'an 2000
@@ -315,7 +333,7 @@ Voici l'analyse des résidus de notre modèle pour l'an 2000.
 
 <!-- Effectuez l'analyse des résidus de votre meilleur modèle, à l'aide de la figure composite regroupant quatre graphiques. -->
 
-```{r resid1, record='RNP', args='labels'}
+```{r resid1, record='RNCS'}
 ___
 ```
 
@@ -325,19 +343,24 @@ ___
 select_answer(r"-{
 [] -   L'étendue des résidus est restreinte par rapport aux valeurs prédites (A).
 [] -   L'étendue des résidus est élevée par rapport aux valeurs prédites (A).
+
 [] -   La linéarité du modèle est bonne (A).
 [] -   La linéarité du modèle est moyenne (A).
 [] -   La linéarité du modèle est mauvaise (A).
 [] -   La linéarité du modèle est relativement bonne, sauf pour les petites valeurs prédites, c'est-à-dire pour les pays ayant la moins bonne espérance de vie (A).
+
 [] -   Une valeur extrême est observée (A).
 [] -   Plusieurs valeurs extrêmes sont observées (A).
+
 [] -   Les résidus ont une distribution Normale ou à peu près Normale (B).
 [] -   Les résidus n'ont pas une distribution Normale mais elle est symétrique (B)
 [] -   Les résidus n'ont pas une distribution Normale et elle est asymétrique (B).
 [] -   Les résidus n'ont pas une distribution Normale car elle s'éloigne essentiellement pour les petites valeurs (encore une fois pour les pays où l'espérance de vie est la plus faible) (B).
+
 [] -   L'homoscédasticité des résidus est rencontrée (C).
 [] -   Il n'y a pas homoscédasticité des résidus à cause des pays à l'espérance de vie la plus faible où la variance augmente (C).
 [] -   Il n'y a pas homoscédasticité des résidus à cause des pays à l'espérance de vie la plus faible où la variance augmente, mais aussi au niveau des pays à espérance de vie élevée où elle diminue. (C).
+
 [] -   Nous ne notons pas la présence d'observations influentes (D).
 [] -   Nous notons la présence d'une observation influente tant au niveau de l'effet de levier que de la distance de Cook (D).
 [] -   Nous notons la présence d'observations influentes tant au niveau de l'effet de levier que de la distance de Cook (D).
@@ -354,7 +377,7 @@ Pour l'année 2015, nous commençons également par un modèle à termes additif
 
 <!--% Réalisez un même modèle linéaire de l'espérance pour l'an 2015 que `who00_lm1`. Placez-le dans `who15_lm1` et faites-en un résumé formaté avec `tabularise()`. -->
 
-```{r model2015_1, record='ROP', object='who15_lm1', arg='call'}
+```{r model2015_1, record='ROP', object='who15_lm1', arg='call', warning=FALSE}
 who15_lm1 <- lm(data = who,
   ___,
   subset = ___)
@@ -367,12 +390,15 @@ summary(who15_lm1) |> tabularise()
 select_answer(r"-{
 [] -   Le modèle dans son ensemble n'est pas significatif au seuil $\alpha$ de 5% (ANOVA).
 [] -   Le modèle dans son ensemble est significatif au seuil $\alpha$ de 5% (ANOVA).
+
 [] -   Le *R*^2^ multiple que nous utilisons ici vaut 0.95. Il est donc bon.
 [] -   Le *R*^2^ multiple que nous utilisons ici vaut 0.95. Il est donc excellent.
 [] -   Le *R*^2^ ajusté que nous utilisons ici vaut 0.94. Il est donc bon.
 [] -   Le *R*^2^ ajusté que nous utilisons ici vaut 0.94. Il est donc excellent.
+
 [] -   La mortalité moyenne et l'éducation ont un effet significatif au seuil $\alpha$ de 5%, mais pas l'IMC et il n'y a pas d'interactions ni de décalage de l'ordonnée à l'origine entre pays dévelopés ou non.
 [] -   La mortalité moyenne et l'éducation ont un effet significatif au seuil $\alpha$ de 5% et le décalage de l'ordonnée à l'origine est également significatif. Par contre l'IMC ne l'est pas et il n'y a pas d'interaction.
+
 [] -   L'IMC et les interactions sont significatifs au seuil $\alpha$ de 5%, le reste non.
 [] -   L'IMC, les interactions et le décalage de l'ordonnée à l'origine sont significatifs au seuil $\alpha$ de 5%, le reste non.}-")
 ```
@@ -381,7 +407,7 @@ Nous tentons une simplification de notre modèle pour l'an 2015.
 
 <!--% Réalisez un second modèle simplifié raisonnablement en fonction de vos observations du premier dans `who15_lm2`. Vous en ferez aussi le résumé. -->
 
-```{r model2015_2, record='ROP', object='who15_lm2', arg='call'}
+```{r model2015_2, record='ROP', object='who15_lm2', arg='call', warning=FALSE}
 who15_lm2 <- lm(data = who,
   ___,
   subset = ___)
@@ -394,8 +420,10 @@ summary(who15_lm2) |> tabularise()
 select_answer(r"-{
 [] -   Le modèle dans son ensemble n'est pas significatif au seuil $\alpha$ de 5% (ANOVA).
 [] -   Le modèle dans son ensemble est significatif au seuil $\alpha$ de 5% (ANOVA).
+
 [] -   Le *R*^2^ reste similaire au modèle précédent.
 [] -   Le *R*^2^ a diminué par rapport au modèle précédent.
+
 [] -   Tous les paramètres du modèle sont significativement différents de zéro au seuil $\alpha$ de 5%.
 [] -   Plus aucun paramètre du modèle n'est significativement différent de zéro au seuil $\alpha$ de 5%.
 [] -   Les termes indépendants du modèle sont significativement différents de zéro au seuil $\alpha$ de 5% (mais pas le décalage de l'origine).}-")
@@ -405,7 +433,7 @@ Le meilleur modèle est de nouveau déterminé grâce au critère d'Akaike et à
 
 <!--% Comparez à présent les deux modèles sur base de l'AIC et d'un test ANOVA pour décider lequel conserver. -->
 
-```{r compa3, record='RNP', arg='col_keys'}
+```{r compa3, record='RNP', arg='col_keys', warning=FALSE}
 AIC(___, ___) |> as_dtt() |>
   tabularise() |>
   Stb$set_header_labels(.rownames = "Modèle", df = "Ddl", AIC = "AIC")
@@ -419,6 +447,7 @@ select_answer(r"-{
 [] -   L'AIC indique que le premier modèle est le meilleur.
 [] -   L'AIC indique que le second modèle simplifié est le meilleur.
 [] -   Les AIC étant presque identiques, nos deux modèles se vallent.
+
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre premier modèle plus complexe.
 [] -   L'ANOVA de comparaison des deux modèles ne montre pas de différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre second modèle plus simple.
 [] -   L'ANOVA de comparaison des deux modèles montre des différences significatives au seuil $\alpha$ de 5%. Nous pouvons donc conserver notre premier modèle plus complexe.
@@ -430,7 +459,7 @@ Notre modèle final de prédiction de l'espérance de vie pour l'année 2015 est
 <!--% Complétez l'équation paramétrée du modèle. -->
 
 $$
-`r eq__(___, ___ = TRUE, ___ = c(1, 3, 2, 2))`
+`r eq__(who15_lm2, use_coefs = TRUE, coef_digits = c(1, 3, 2, 2))`
 $$
 
 ### Analyse des résidus du modèle pour l'an 2015
@@ -439,7 +468,7 @@ Voici l'analyse des résidus pour le modèle de l'an 2015 que nous retenons.
 
 <!-- Effectuez l'analyse des résidus de votre meilleur modèle 2015, à l'aide de la figure composite regroupant quatre graphiques. -->
 
-```{r resid2, record='RNP', args='labels'}
+```{r resid2, record='RNCS'}
 ___
 ```
 
@@ -449,19 +478,24 @@ ___
 select_answer(r"-{
 [] -   L'étendue des résidus est restreinte par rapport aux valeurs prédites (A).
 [] -   L'étendue des résidus est élevée par rapport aux valeurs prédites (A).
+
 [] -   La linéarité du modèle est bonne (A).
 [] -   La linéarité du modèle est moyenne (A).
 [] -   La linéarité du modèle est mauvaise (A).
 [] -   La linéarité du modèle est bonne, sauf pour les petites valeurs prédites, c'est-à-dire pour les pays ayant la moins bonne espérance de vie (A).
+
 [] -   Une valeur extrême est observée (A).
 [] -   Plusieurs valeurs extrêmes sont observées (A).
+
 [] -   Les résidus ont une distribution Normale ou à peu près Normale (B).
 [] -   Les résidus n'ont pas une distribution Normale mais elle est symétrique (B)
 [] -   Les résidus n'ont pas une distribution Normale et elle est asymétrique (B).
 [] -   Les résidus n'ont pas une distribution Normale car elle s'éloigne essentiellement pour les petites valeurs (encore une fois pour les pays où l'espérance de vie est la plus faible) (B).
+
 [] -   L'homoscédasticité des résidus est rencontrée (C).
 [] -   Il n'y a pas homoscédasticité des résidus à cause des pays à l'espérance de vie la plus faible où la variance augmente (C).
 [] -   Il n'y a pas homoscédasticité des résidus à cause des pays à l'espérance de vie la plus faible où la variance augmente, mais aussi au niveau des pays à espérance de vie élevée où elle diminue. (C).
+
 [] -   Nous ne notons pas la présence d'observations influentes (D).
 [] -   Nous notons la présence d'une observation influente tant au niveau de l'effet de levier que de la distance de Cook (D).
 [] -   Nous notons la présence d'observations influentes tant au niveau de l'effet de levier que de la distance de Cook (D).
