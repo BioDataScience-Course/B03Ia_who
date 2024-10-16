@@ -32,7 +32,7 @@ Le but de ce travail est d'élaborer un modèle pour prédire l'espérance de vi
 
 Les données sont disponibles dans le domaine public (licence CC0) à partir de Kaggle ([**Life Expectancy (WHO) Fixed**](https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated)). Elles sont compilées à partir de différentes sources. L'origine des informations est détaillée dans la page de ce site. Le jeu de données est légèrement remanié (traitement documenté dans le fichier `R/import_who.R`).
 
-L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2023](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
+L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) et en particulier le package {modelit} version `r packageVersion("modelit")` dans la [SciViews Box 2024](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
 
 # Résultats
 
