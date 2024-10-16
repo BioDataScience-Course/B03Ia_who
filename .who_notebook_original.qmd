@@ -38,7 +38,7 @@ L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.v
 
 Voici le jeu de données à disposition :
 
-<!--% Importez les données who.rds et réalisez immédiatement une première description générale. -->
+<!--% Importez les données who.rds. -->
 
 ```{r import, record='RODFS', object='who'}
 who <- read("___")
@@ -59,7 +59,7 @@ sfilter(who, ___) %>.%
     "Nombre de pays", "Pourcentage"))
 ```
 
-Voici la corrélation de Person observée entre les variables quantitatives :
+Voici la corrélation de Pearson observée entre les variables quantitatives :
 
 <!--% Créez ci-dessous le graphique des corrélations de Pearson entre les variables quantitatives en passant par un objet correlation. -->
 
