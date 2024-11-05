@@ -279,7 +279,7 @@ who00_lm3 <- lm(data = who,
 summary(who00_lm3) |> tabularise()
 ```
 
-<!--% Interprétez ce second modèle 2015.-->
+<!--% Interprétez ce second modèle 2000.-->
 
 ```{r model2000_3comment, output='asis'}
 select_answer(r"-{
